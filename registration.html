@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <h1>Coding Camp</h1>
+    <meta charset="utf-8">
+    <title>Coding Camp</title>
+    <style>
+       img{
+        width: 400px;
+        height: 300px;
+       }
+
+       table{
+        border-collapse: collapse;
+        width: 55%;
+       }
+
+       td, th{
+        border: 1px solid;
+       }
+       
+
+
+
+       body{
+        background-color: #c0c0c0;
+        margin: 0 10%;
+        font-family: sans-serif;
+       }
+
+       h1{
+        text-align: center;
+        font-family: monospace;
+        font-size: 4em;
+        font-weight: 100;
+        text-transform: uppercase;
+        border-bottom: 1px solid #57b1dc;
+        margin-top: 20px;
+       }
+
+       h2{
+        color: #d1633c;
+        font-size: 1em;
+       }
+
+       p{
+        text-align: left;
+        font-family: sans-serif;
+        font-size: larger;
+       }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+
+        <fieldset>
+          <legend>Your Information</legend>
+          <ul>
+            <li><label for="first-name">First Name:</label> <input type="text" id="firstname" name="firstname"></li>
+            <li><label for="last-name">Last Name:</label> <input type="text" name="lastname"></li>
+            <li><label for="password">Password:</label><input type="password" name="password" maxlength="12"></li>
+            <li>Allergies/Concerns:<br>
+            <textarea name="concern" rows="4" cols="60" maxlength="400" id="form-story" placeholder="Please let us know of any food allergies for similar concerns here"></textarea></li>
+          </ul>
+        </fieldset>
+        
+        
+        <fieldset>
+          <legend>T Shirt Info</legend>
+          <fieldset>
+            <legend>Size <em>(Choose one)</em>:</legend>
+            <ul>
+              <li><label><input type="radio" name="size" value="small" checked> Small</label></li>
+              <li><label><input type="radio" name="size" value="medium"> Medium</label></li>
+              <li><label><input type="radio" name="size" value="large"> Large</label></li>
+              <li><label><input type="radio" name="size" value="extra large"> Extra Large</label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset>
+            <legend>Activities</legend>
+            <ul>
+              <li><label><input type="checkbox" name="activity" value="fishing"> Fishing</label></li>
+              <li><label><input type="checkbox" name="activity" value="swimming"> Swimming</label></li>
+              <li><label><input type="checkbox" name="activity" value="rock climbing"> Rock Climbing</label></li>
+              <li><label><input type="checkbox" name="activity" value="board games"> Board Games</label></li>
+            </ul>
+          </fieldset>
+        
+        
+        
+          <fieldset>
+          <legend>Age</legend>
+          <p>How old is the camper? 
+          <select name="age" size="1" id="ageSelect">
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+          </select>
+          </p>
+          </fieldset>
+
+          <label id="picmsg">Send a photo to be used as your online picture<em>
+        </em><br>
+         <input type="file" name="photo"></label>
+        
+        </fieldset> <!-- closes 'Pizza Specs' fieldset -->
+        
+        <p><input type="button" value="Register Now" onclick="thankYouMessage()">
+        <input type="reset" value="Cancel" onclick="byeMessage()"></p>
+
+        <p id="thanks"></p>
+        <p id="group"></p>
+        <img src="" alt="" id="myImage">
+        
+        </form>
+
+
+
+
+      <script>
+        function thankYouMessage() {
+          var x = document.getElementById("firstname").value;
+          document.getElementById("thanks").innerHTML = "Thank you for registering, " + x;
+          document.getElementById("picmsg").style.fontSize='40px'
+          document.getElementById('myImage').src='images/smileyface.jpg'
+
+          var y = document.getElementById("ageSelect").value;
+
+          if (y<16) {
+            document.getElementById("group").innerHTML = "You are in the Minnows group"
+          } else {
+            document.getElementById("group").innerHTML = "You are in the Sharks group"
+          }
+
+        }
+
+        function byeMessage() {
+          document.getElementById("thanks").innerHTML = "Sorry to see you go!";
+        }
+      </script>
+          
+
+</body>
+
+
+
+</html>
